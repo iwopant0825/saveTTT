@@ -1,13 +1,41 @@
 {
+  "name": "savinggking",
+  "version": "1.0.0",
+  "description": "생활비 절약을 위한 올인원 계산기 웹사이트",
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
+    "framer-motion": "^12.18.1",
+    "lucide-react": "^0.522.0",
     "next": "^14.2.21",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
+    "react-dom": "^18.2.0",
+    "recharts": "^2.15.4",
+    "styled-components": "^6.1.19",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "24.0.3",
+    "@types/react": "19.1.8",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.21"
+  },
+  "keywords": [
+    "절약",
+    "계산기",
+    "통신비",
+    "전기요금",
+    "대출",
+    "구독서비스",
+    "가계부",
+    "nextjs",
+    "react"
+  ],
+  "author": "SavingKing Team",
+  "license": "MIT"
 }

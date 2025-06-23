@@ -1,0 +1,115 @@
+/* 모바일 터치 최적화 */
+
+/* 터치 가능한 요소들의 최소 크기 확보 */
+button, 
+a, 
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"],
+.touchable {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* 스크롤 성능 향상 */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 터치 액션 최적화 */
+.pan-y {
+  touch-action: pan-y;
+}
+
+.pan-x {
+  touch-action: pan-x;
+}
+
+.manipulation {
+  touch-action: manipulation;
+}
+
+/* 모바일에서 호버 효과 비활성화 */
+@media (hover: none) {
+  .hover-effect:hover {
+    transform: none !important;
+    box-shadow: inherit !important;
+  }
+}
+
+/* 모바일 텍스트 선택 최적화 */
+.mobile-text {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 모바일 입력 필드 최적화 */
+input, textarea, select {
+  font-size: 16px; /* iOS 줌 방지 */
+}
+
+/* 모바일 버튼 스타일 */
+.mobile-button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 모바일 카드 터치 피드백 */
+.mobile-card {
+  transition: transform 0.1s ease;
+}
+
+.mobile-card:active {
+  transform: scale(0.98);
+}
+
+/* Safe Area 대응 (iPhone X 이상) */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-left {
+  padding-left: env(safe-area-inset-left);
+}
+
+.safe-area-right {
+  padding-right: env(safe-area-inset-right);
+}
+
+/* 모바일 스크롤바 숨기기 */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* 모바일 풀스크린 지원 */
+@media (display-mode: fullscreen) {
+  .pwa-fullscreen {
+    padding-top: 0;
+  }
+}
+
+/* 모바일 가로 모드 최적화 */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .mobile-landscape-optimize {
+    padding: 8px 16px;
+  }
+  
+  .mobile-landscape-hide {
+    display: none;
+  }
+}
