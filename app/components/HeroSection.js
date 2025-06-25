@@ -290,23 +290,7 @@ export default function HeroSection() {
               <HeroTitle variants={itemVariants}>
                 생활비 절약의
                 <br />
-                <motion.span
-                  animate={{ 
-                    background: [
-                      'linear-gradient(45deg, #FFD700, #FFA500)',
-                      'linear-gradient(45deg, #FFA500, #FF6347)',
-                      'linear-gradient(45deg, #FF6347, #FFD700)'
-                    ]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  style={{
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    color: 'transparent'
-                  }}
-                >
-                  새로운 기준
-                </motion.span>
+                새로운 기준
               </HeroTitle>
 
               <HeroSubtitle variants={itemVariants}>
