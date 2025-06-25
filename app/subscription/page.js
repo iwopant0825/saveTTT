@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Users, Plus, Trash2, Calendar, DollarSign, TrendingDown, Play, Music, Video, Gamepad2, Book, Shield, Loader, AlertCircle } from 'lucide-react'
@@ -510,7 +510,7 @@ export default function SubscriptionManager() {
   })
 
   // API에서 구독 분석 데이터 가져오기
-  const fetchSubscriptionData = async () => {
+  const fetchSubscriptionData = useCallback(async () => {
     try {
       setLoading(true)
       setError(null)
@@ -540,7 +540,7 @@ export default function SubscriptionManager() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [subscriptions])
 
   // 초기 데이터 로드 및 구독 변경 시 재분석
   useEffect(() => {
@@ -580,7 +580,7 @@ export default function SubscriptionManager() {
       const debounceTimeout = setTimeout(fetchSubscriptionData, 500)
       return () => clearTimeout(debounceTimeout)
     }
-  }, [subscriptions])
+  }, [subscriptions, fetchSubscriptionData])
 
   // 총 비용 계산 (API 데이터 우선, 로컬 계산 fallback)
   const monthlyTotal = apiData ? apiData.monthlyTotal : subscriptions.reduce((total, sub) => {

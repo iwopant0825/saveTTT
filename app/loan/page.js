@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { CreditCard, TrendingDown, Calculator, DollarSign, Calendar, Percent, ArrowRight, Loader, AlertCircle } from 'lucide-react'
@@ -329,7 +329,7 @@ export default function LoanCalculator() {
   const [recommendations, setRecommendations] = useState([])
 
   // API를 통한 대출 계산 및 분석
-  const calculateLoanDetails = async () => {
+  const calculateLoanDetails = useCallback(async () => {
     if (!currentAmount || !currentRate || !currentTerm) {
       setShowResults(false)
       return
@@ -388,13 +388,13 @@ export default function LoanCalculator() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [currentAmount, currentRate, currentTerm, newRate, loanType])
 
   // 입력값 변경 시 자동 계산
   useEffect(() => {
     const debounceTimeout = setTimeout(calculateLoanDetails, 500)
     return () => clearTimeout(debounceTimeout)
-  }, [currentAmount, currentRate, currentTerm, newRate, loanType]) 
+  }, [currentAmount, currentRate, currentTerm, newRate, loanType, calculateLoanDetails]) 
     ? calculateTotalInterest(currentAmount, newRate, currentTerm) 
     : 0
 
