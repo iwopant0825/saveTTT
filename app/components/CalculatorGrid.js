@@ -84,7 +84,7 @@ const CalculatorGrid = styled(motion.div)`
   }
 `
 
-const CalculatorCard = styled(motion(Link))`
+const CalculatorCard = styled(motion.create(Link))`
   background: ${colors.background.primary};
   border-radius: ${spacing.md};
   padding: ${spacing.lg};

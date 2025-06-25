@@ -11,7 +11,6 @@ const nextConfig = {
   },
   // 성능 최적화
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['lucide-react', 'recharts'],
   },
   // PWA 설정을 위한 추가 옵션

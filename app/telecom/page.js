@@ -93,7 +93,6 @@ const Container = styled.div`
     padding: ${spacing['5xl']} ${spacing.xl};
   }
 `
-`
 
 const ErrorMessage = styled.div`
   background: #fee2e2;
